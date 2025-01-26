@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Invitation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="scene">
+    <!-- Card Container (has front envelope & back invitation) -->
+    <div class="card" id="card">
+      <!-- Envelope Front -->
+      <div class="card-face card-front">
+        <div class="envelope-front">
+          <div class="stamp">✉️</div>
+          <div class="guest-name" id="guest-name">You're Invited!</div>
+        </div>
+      </div>
+
+      <!-- Invitation Back -->
+      <div class="card-face card-back">
+        <div class="invite-wrapper">
+          <div class="invite-card">
+            <h2>I CHOOSE YOU!</h2>
+            <h2>Precilla’s 21st Birthday</h2>
+            <p>Date & Time: October 15, 7 PM</p>
+            <p>Location: 123 Party Avenue, Fun City</p>
+            <p>Dress Code: Favorite Pokémon or Fun Attire!</p>
+            <button class="rsvp-button">RSVP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-screen canvas for confetti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

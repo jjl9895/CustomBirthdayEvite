@@ -1,0 +1,147 @@
+/* GENERAL RESETS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    height: 100vh;
+    background: #aee1f9; /* Light blue background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    overflow: hidden; /* Hide scrollbars (confetti, etc.) */
+  }
+  
+  /* 3D SCENE */
+  .scene {
+    perspective: 1000px; /* Needed for the 3D flip effect */
+  }
+  
+  /* CARD CONTAINER */
+  .card {
+    width: 350px;             /* Envelope size */
+    height: 250px;            /* Envelope size */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+  }
+  
+  /* CARD FLIPPED */
+  .card.flipped {
+    transform: rotateY(180deg); 
+  }
+  
+  /* CARD FACES (front and back) */
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  /* ENVELOPE FRONT */
+  .card-front {
+    background: #ff5722;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(0deg);
+  }
+  .envelope-front {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    background: inherit;
+    border-radius: 4px;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+  }
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+  }
+  .guest-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* INVITATION BACK */
+  .card-back {
+    background: #fff;
+    border-radius: 4px;
+    transform: rotateY(180deg);
+    overflow: visible; /* So the card can expand beyond envelope */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* INVITE WRAPPER */
+  .invite-wrapper {
+    position: relative;
+    width: 85%;        /* Envelope opening width */
+    height: 80%;       /* Envelope opening height */
+    overflow: visible; /* Important: allow the card to expand beyond this */
+    box-shadow: 0 8px 10px rgba(0,0,0,0.2);
+    border-radius: 4px;
+  }
+  
+  /* INVITATION CARD: starts bigger than the container and scaled down */
+  .invite-card {
+    background: #ffe066;      /* Fun color (light yellow) */
+    width: 110%;              /* Make the invite card bigger than the wrapper */
+    height: 120%;             /* Same idea here; can tweak as needed */
+    transform-origin: top center; /* So scaling pivots from the top */
+    transform: scale(0.6) translateY(100%); /* Start small & below the "envelope" */
+    transition: transform 0.8s ease;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  
+  /* When flipped, the card expands and slides up */
+  .card.flipped .invite-card {
+    transform: scale(1) translateY(0%);
+  }
+  
+  /* Invitation Text */
+  .invite-card h2 {
+    margin-bottom: 10px;
+  }
+  .invite-card p {
+    margin: 5px 0;
+  }
+  .rsvp-button {
+    margin-top: 10px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+  }
+  .rsvp-button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* FULL-SCREEN CANVAS FOR CONFETTI */
+  #confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Let clicks pass through to the card */
+  }
+  
