@@ -29,7 +29,14 @@ window.onload = function() {
     rsvpButton.addEventListener('click', () => {
       window.open('https://docs.google.com/forms/d/e/1FAIpQLSfhw0DhUo-FqJich7luy4JkqKoj_UkSWHNtOa1thfHuKmRsaw/viewform?usp=header', '_blank');
     });
-  
+    
+    const whocoming = document.querySelector('.whocoming');
+    whocoming.addEventListener('click', () => {
+      window.open('https://docs.google.com/spreadsheets/d/1vx0wz01FBlTBxMBB2GXrCcGb_4eNOtBqJv42wbwYAnI/edit?usp=sharing', '_blank');
+    })
+
+    
+
     function createConfetti() {
       const confettiCount = 100;
       for (let i = 0; i < confettiCount; i++) {
