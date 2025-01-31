@@ -1,0 +1,45 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flipping Pokémon-Style Invite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scene">
+    <div class="card" id="card">
+      <!-- Envelope Front -->
+      <div class="card-face card-front">
+        <div class="envelope-front">
+          <div class="stamp">✉️</div>
+          <div class="guest-name" id="guest-name">You're Invited!</div>
+        </div>
+      </div>
+
+      <!-- Envelope Back with the Pokémon card -->
+      <div class="card-face card-back">
+        <div class="invite-wrapper">
+          <div class="pokemon-card">
+            <div class="card-image-container">
+              <img src="SigmaPikachu.jpeg" alt="Pikachu Meme" class="card-image" />
+            </div>
+            <h1>I CHOOSE YOU!</h1>
+            <h2>Precilla's 21st Birthday</h2>
+            <p class="invite-details">
+              Date & Time: March 8th, 7 PM<br />
+              Location: 211 East 33rd Street<br />
+              Dress Code: Favorite Pokémon or Fun Attire!
+            </p>
+            
+            <button class="rsvp-button" id="rsvp-button">RSVP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>

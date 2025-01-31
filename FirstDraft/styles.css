@@ -76,43 +76,55 @@
   
   /* INVITATION BACK */
   .card-back {
-    background: #fff;
-    border-radius: 4px;
-    transform: rotateY(180deg);
-    overflow: visible; /* So the card can expand beyond envelope */
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotateY(180deg);
+    background: #fff;
+    border-radius: 4px;
+    overflow: visible;
   }
   
   /* INVITE WRAPPER */
   .invite-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    width: 85%;        /* Envelope opening width */
-    height: 80%;       /* Envelope opening height */
-    overflow: visible; /* Important: allow the card to expand beyond this */
+    width: 85%;
+    height: 80%;
+    overflow: visible;
     box-shadow: 0 8px 10px rgba(0,0,0,0.2);
     border-radius: 4px;
   }
   
   /* INVITATION CARD: starts bigger than the container and scaled down */
   .invite-card {
-    background: #ffe066;      /* Fun color (light yellow) */
-    width: 110%;              /* Make the invite card bigger than the wrapper */
-    height: 120%;             /* Same idea here; can tweak as needed */
-    transform-origin: top center; /* So scaling pivots from the top */
-    transform: scale(0.6) translateY(100%); /* Start small & below the "envelope" */
+    position: relative;
+    background: url("SigmaPikachu.jpeg") center center / cover no-repeat;
+    width: 110%;
+    height: 120%;
+    transform-origin: top center;
+    /* Center horizontally via translateX(-50%), and start smaller & below */
+    left: 50%; 
+    transform: translateX(-50%) scale(0.6) translateY(100%);
+  
     transition: transform 0.8s ease;
     border-radius: 4px;
     box-sizing: border-box;
     padding: 20px;
-  }
   
-  /* When flipped, the card expands and slides up */
-  .card.flipped .invite-card {
-    transform: scale(1) translateY(0%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
-  
+
+/* When flipped, scale to full size and translate up */
+.card.flipped .invite-card {
+  transform: translateX(-50%) scale(1) translateY(0%);
+}
   /* Invitation Text */
   .invite-card h2 {
     margin-bottom: 10px;

@@ -1,0 +1,209 @@
+/* styles.css */
+
+/* RESET & LAYOUT */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: #aee1f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  overflow: hidden; /* hide scrollbars (confetti, etc.) */
+}
+
+/* CONFETTI */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* SCENE & CARD */
+.scene {
+  perspective: 1000px;
+}
+.card {
+  width: 350px;
+  height: 250px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* ENVELOPE FRONT */
+.card-front {
+  background: #ff5722;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(0deg);
+}
+.envelope-front {
+  position: relative;
+  width: 90%;
+  height: 80%;
+  background: inherit;
+  border-radius: 4px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+.stamp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+}
+.guest-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* ENVELOPE BACK */
+.card-back {
+  background: #fff;
+  border-radius: 4px;
+  transform: rotateY(180deg);
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* INVITE WRAPPER */
+.invite-wrapper {
+  position: relative;
+  width: 85%;
+  height: 80%;
+  overflow: visible;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  /* This helps ensure the card is centered within the wrapper. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* POKÉMON CARD */
+.pokemon-card {
+  /* Position & sizing */
+  position: relative;
+  width: 400px;                /* Example width */
+  aspect-ratio: 1106 / 696;    /* Maintains Pokémon card ratio (~1.59:1) */
+  height: auto;                /* Let aspect-ratio control height */
+
+  /* Visual design */
+  background: #FFCB05;
+  border: 10px solid #c7a008;  /* Pokémon yellow border */
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
+  /* (Optional) "pull-out" or "rise" animation—adjust to taste */
+  transform-origin: top center;
+  transform: scale(0.6) translateY(70%);
+  transition: transform 0.8s ease;
+
+  /* Layout inside the card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* When flipped or revealed, it scales up and shifts up */
+.card.flipped .pokemon-card {
+  transform: scale(1) translateY(0);
+}
+
+
+/* IMAGE AREA */
+.card-image-container {
+  width: 75%;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 2px solid #000;
+}
+
+/* TITLES, DETAILS, STATS, BUTTON ... (same as before) */
+.pokemon-card h1 {
+  margin: 8px 0 4px 0;
+  font-size: 1.5rem;
+  color: #cc0000;
+  text-shadow: 1px 1px 0 #fff;
+}
+.pokemon-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+.invite-details {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  color: #222;
+}
+.card-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-label {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.stat-value {
+  color: #ff5722;
+  font-weight: bold;
+}
+.rsvp-button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.rsvp-button:hover {
+  background-color: #e64a19;
+}
